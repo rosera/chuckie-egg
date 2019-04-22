@@ -1,8 +1,8 @@
-# docker run --rm -e DISPLAY=$DISPLAY \
+# docker run --rm -d -e DISPLAY=$DISPLAY \
 #  -v /tmp/.X11-unix:/tmp/.X11-unix \
 #  --hostname=$HOSTNAME \
 #  -v $HOME/.Xauthority:/root/.Xauthority \
-#  --device /dev/snd ch-egg:1.0
+#  --device /dev/snd ch-egg
 
 FROM ubuntu:16.04 
 LABEL maintainer "Rich Rose <askrichardrose@gmail.com>"
@@ -15,16 +15,17 @@ RUN groupadd -r chuckie && useradd -r -g chuckie -G audio,video chuckie \
     && mkdir -p /home/chuckie/Downloads && chown -R chuckie:chuckie /home/chuckie
 
 ENV HOME /home/chuckie
+ENV TERM=xterm
 
 # Add a working directory
 WORKDIR /home/chuckie
 
 # Copy the app and sound config to the image
-COPY app .
+COPY --chown=chuckie:chuckie app .
 COPY asound.conf /etc/asound.conf
 
 # Set the user
 USER chuckie
 
 # Run the command
-CMD "./ch-egg"
+CMD ["./ch-egg"]
