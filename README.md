@@ -32,4 +32,5 @@ If you intend to run the container on a Cloud Environment such as Google Cloud P
 
 gcloud compute ssh android-studio-vm --zone us-central1-a --command "..."
 
-
+# Cloud Run Button
+[![Run on Google Cloud](https://storage.googleapis.com/cloudrun/button.svg)](https://console.cloud.google.com/cloudshell/editor?shellonly=true&cloudshell_image=gcr.io/cloudrun/button&cloudshell_git_repo=https://github.com/rosera/container-ch-egg.git)

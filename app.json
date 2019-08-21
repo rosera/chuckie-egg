@@ -1,0 +1,13 @@
+{
+  "name": "chuckie-egg",
+  "env": {
+      "BACKGROUND_COLOR": {
+          "description": "specify a css color",
+          "value": "#fefefe",
+          "required": false
+      },
+      "TITLE": {
+          "description": "Container version of the classic BBC Micro game Chuckie Egg"
+      }
+  }
+}
